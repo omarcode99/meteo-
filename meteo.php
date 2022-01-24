@@ -19,7 +19,12 @@ if($_POST['city']){
   
   if(@$tabweather['cod'] == 200) {
   $temperature = $tabweather ['main'] ['temp'] - 273  ;
-     $weather = "<b> weather condition : </b>"  .$tabweather['weather'] ['0'] ['description']  ;
+    
+  $weather = "<b> weather condition : </b>"  .$tabweather['weather'] ['0'] ['description']  ;
+    
+   @$weathericon = $tabweather['weather'][0]['icon'] ;
+
+    $img = "<img src= 'http://openweathermap.org/img/wn/".$weathericon."@2x.png ' /> " ;
 }
 else {
 
@@ -275,6 +280,11 @@ color: white ;
    <?php if(!empty($weather)){ ?>
  <?php echo  "<h1>$weather<h1>" ; ?> 
    <?php } ?>
+        
+   <?php if(!empty($img)){ ?>
+ <?php echo  "<h1>$img<h1>" ; ?> 
+   <?php } ?>
+
 
    
 
